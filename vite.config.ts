@@ -6,12 +6,12 @@ import windicss from 'vite-plugin-windicss'
 import { viteMockServe } from 'vite-plugin-mock'
 // https://vitejs.dev/config/
 export default (): UserConfigExport => {
-    return {
-        plugins: [vue(), vueJSX(), windicss(), viteMockServe()],
-        resolve: {
-            alias: {
-                '@': resolve(__dirname, 'src'),
-            },
-        },
-    }
+  return {
+    plugins: [vue(), vueJSX(), windicss(), viteMockServe()],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+    },
+  }
 }

@@ -1,8 +1,8 @@
 import { MockMethod } from 'vite-plugin-mock'
 export default [
   {
-    url: '/getMenu',
-    method: 'get',
+    url: '/getMenus',
+    method: 'post',
     response: () => {
       return {
         code: 0,
@@ -11,6 +11,7 @@ export default [
             path: '/dashboard',
             name: 'Dashboard',
             component: 'Layout',
+            redirect: '/dashboard/index',
             icon: 'a',
             children: [
               {

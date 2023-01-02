@@ -27,5 +27,6 @@ module.exports = {
       },
     ],
     'implict-any': 0,
+    'no-debugger': 0,
   },
 }
