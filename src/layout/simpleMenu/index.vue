@@ -1,15 +1,15 @@
 <template>
   <div>
     <el-menu mode="vertical" :ellipsis="false">
-      <SimpleSubMenu v-for="(item, index) in items" :key="index" :item="item" />
+      <SimpleSubMenu v-for="(menu, index) in menus" :key="index" :menu="menu" />
     </el-menu>
   </div>
 </template>
 <script setup lang="ts">
 import SimpleSubMenu from './simpleSubMenu.vue'
 const props = defineProps({
-  items: {
-    type: Array,
+  menus: {
+    type: Object,
   },
 })
 </script>

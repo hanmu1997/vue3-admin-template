@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-export const userStore = defineStore('userStore', {
+export const useUserStore = defineStore('userStore', {
   getters: {},
   persist: true,
 })

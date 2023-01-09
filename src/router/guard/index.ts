@@ -1,11 +1,17 @@
-export const setupRouterGuard = () => {
-  createPermissionGuard()
-  createLoadingGuard()
+import { Router } from 'vue-router'
+
+export const setupRouterGuard = (router: Router) => {
+  createPageGuard(router)
+  createPermissionGuard(router)
+  createLoadingGuard(router)
 }
 
-function createPermissionGuard() {
-  //
+function createPageGuard(router) {
+  // 主要设置一下,
 }
-function createLoadingGuard() {
+
+function createPermissionGuard(router) {}
+
+function createLoadingGuard(router) {
   //
 }

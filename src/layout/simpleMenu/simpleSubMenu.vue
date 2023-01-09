@@ -1,13 +1,13 @@
 <template>
   <SimpleMenuItem
-    v-if="!item?.children.length"
-    :index="item?.name"
-    :title="item?.title"
+    v-if="!menu?.children.length"
+    :index="menu?.name"
+    :title="menu?.meta.title"
   />
-  <el-sub-menu v-else>
-    <template #title>aaa</template>
+  <el-sub-menu v-else :index="menu?.name">
+    <template #title>{{ menu?.meta?.title }}</template>
     <SimpleSubMenu
-      v-for="(child, index) in item.children"
+      v-for="(child, index) in menu.children"
       :key="index"
       :item="child"
     />
@@ -17,7 +17,7 @@
 import { defineComponent } from 'vue'
 import SimpleMenuItem from './simpleMenuItem.vue'
 const props = defineProps({
-  item: {
+  menu: {
     type: Object,
   },
 })
