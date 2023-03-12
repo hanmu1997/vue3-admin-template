@@ -8,5 +8,5 @@ import {
 
 export const router = createRouter({
   history: createWebHashHistory(),
-  routes: [rootRoute, notFoundRoute, redirectRoute, loginRoute],
+  routes: [rootRoute, loginRoute, notFoundRoute, redirectRoute],
 })

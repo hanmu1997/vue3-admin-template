@@ -1,20 +1,24 @@
 <template>
   <div>
     <el-menu mode="vertical" :ellipsis="false">
-      <SubMenu v-for="(menu, index) in menus" :key="index" :menu="menu" />
+      <SubMenu v-for="(item, index) in data" :key="index" :data="item" />
     </el-menu>
   </div>
 </template>
+<script lang="ts">
+export default {
+  name: 'SideMenu',
+}
+</script>
 <script setup lang="ts">
 import SubMenu from './SubMenu.vue'
-import mitt from 'mitt'
+import { emitter } from '@/utils/emitter'
 const props = defineProps({
-  menus: {
+  data: {
     type: Object,
   },
 })
 const emits = defineEmits(['menuItemClick'])
-const emitter = mitt()
 emitter.on('on-menu-item-click', (name: string) => {
   emits('menuItemClick', name)
 })

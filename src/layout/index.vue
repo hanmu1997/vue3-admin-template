@@ -1,11 +1,11 @@
 <template>
   <div class="flex">
     <SimpleMenu
-      class="w-200px"
-      :menus="getMenus"
+      class="w-300px"
+      :data="getMenus"
       @menu-item-click="handleClickMenuItem"
     />
-    <div class="">
+    <div class="flex-1">
       <RouterView #default="{ Component }">
         <Transition>
           <component :is="Component" />
@@ -14,6 +14,11 @@
     </div>
   </div>
 </template>
+<script lang="ts">
+export default {
+  name: 'Layout',
+}
+</script>
 <script setup lang="ts">
 import SimpleMenu from '@/components/simpleMenu'
 import { usePermissionStore } from '@/store/modules/permission'

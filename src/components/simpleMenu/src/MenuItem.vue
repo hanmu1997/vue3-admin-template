@@ -4,8 +4,7 @@
   </el-menu-item>
 </template>
 <script setup lang="ts">
-import mitt from 'mitt'
-
+import { emitter } from '@/utils/emitter'
 const props = defineProps({
   index: {
     type: String,
@@ -16,7 +15,6 @@ const props = defineProps({
     default: '',
   },
 })
-const emitter = mitt()
 const handleClickMenuItem = (name: string) => {
   emitter.emit('on-menu-item-click', name)
 }

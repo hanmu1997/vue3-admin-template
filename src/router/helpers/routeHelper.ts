@@ -4,7 +4,7 @@ import Layout from '@/layout/index.vue'
  * @param routes 后端返回的路由记录
  * @returns Array<RouteRecordRaw>
  */
-export function buildRoutes(routes: Array<any>) {
+export function generateRoutes(routes) {
   routes.forEach((route) => {
     if (route.component == 'Layout') {
       route.component = Layout
