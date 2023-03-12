@@ -20,7 +20,7 @@ export default [
               {
                 path: 'index',
                 name: 'DashboardIndex',
-                component: '/views/dashboard/index.vue',
+                component: '/views/dashboard',
                 meta: {
                   title: 'DashboardIndex',
                 },
@@ -31,25 +31,26 @@ export default [
             path: '/feat',
             name: 'Feat',
             component: 'Layout',
+            redirect: '/feat/feat1',
             icon: 'a',
             meta: {
               title: 'Feat',
             },
             children: [
               {
-                path: 'icon',
-                name: 'Icon',
-                component: '/views/feat/icon/index.vue',
+                path: 'feat1',
+                name: 'Feat1',
+                component: '/views/feat/feat1',
                 meta: {
-                  title: 'Icon',
+                  title: 'feat1',
                 },
               },
               {
-                path: 'ws',
-                name: 'WS',
-                component: '/views/feat/ws/index.vue',
+                path: 'feat2',
+                name: 'Feat2',
+                component: '/views/feat/feat2',
                 meta: {
-                  title: 'WS',
+                  title: 'feat2',
                 },
               },
             ],

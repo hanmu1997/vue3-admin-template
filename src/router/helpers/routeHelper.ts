@@ -1,14 +1,13 @@
-const routeMap = new Map()
-routeMap.set('Layout', () => import('@/layout/index.vue'))
+import Layout from '@/layout/index.vue'
 /**
  * 根据后端返回的路由记录构造路由记录
  * @param routes 后端返回的路由记录
  * @returns Array<RouteRecordRaw>
  */
-export function transformObjToRoutes(routes: Array<any>) {
+export function buildRoutes(routes: Array<any>) {
   routes.forEach((route) => {
     if (route.component == 'Layout') {
-      route.component = routeMap.get('Layout')
+      route.component = Layout
     }
     if (route.children.length) {
       asyncImportRoutes(route.children)
@@ -31,10 +30,12 @@ function asyncImportRoutes(routes: Array<any>) {
 
 /**
  * 返回指定的模块
- * @param modules
- * @param name
+ * @param modules 模块列表
+ * @param path 模块名
  */
-function dynamicImport(modules, name: string): () => Promise<unknown> {
-  const moduleIndex = '../..' + name
-  return modules[moduleIndex]
+function dynamicImport(modules, path: string): () => Promise<unknown> {
+  const key = Object.keys(modules).find((moduleName) => {
+    return moduleName.includes(path)
+  })
+  return key ? modules[key] : null
 }
